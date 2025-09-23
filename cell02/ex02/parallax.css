@@ -1,0 +1,41 @@
+body, html {
+  margin: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* พื้นหลัง parallax */
+.parallax {
+  height: 100vh; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.img1 {
+  background-image: url("https://static.wikia.nocookie.net/memeverse-tcg/images/8/86/Abatukam.png/revision/latest?cb=20230818011131"); 
+}
+
+.img2 {
+  background-image: url("https://static.voicedub.ai/models/9cb46cbd-7b3f-4523-ba7b-5893e4724a4a/9cb46cbd-7b3f-4523-ba7b-5893e4724a4a.webp"); 
+}
+/* ===================================== */
+
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.section {
+  height: 50vh;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
