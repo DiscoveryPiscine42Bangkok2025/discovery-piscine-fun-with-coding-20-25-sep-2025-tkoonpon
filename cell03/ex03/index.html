@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To do or not to do</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{font-family:system-ui,Arial,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#f7f7f7}
+    .wrap{width:min(720px,92vw);background:#fff;border:1px solid #e8e8e8;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.08);padding:20px}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    #new{padding:8px 14px;font-size:15px;cursor:pointer}
+    #ft_list{display:flex;flex-direction:column-reverse;gap:8px} /* column-reverse + append = แสดงบนสุด */
+    .todo{padding:10px 12px;border:1px solid #ddd;border-radius:8px;background:#fafafa;cursor:pointer}
+    .empty{color:#888;text-align:center;margin:20px 0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1 style="margin:0;font-size:20px;">To do or not to do</h1>
+      <button id="new">New</button>
+    </div>
+
+    <div id="ft_list"></div>
+    <div id="placeholder" class="empty" hidden>Nothing to do… yet.</div>
+  </div>
+
+  <script src="todo.js"></script>
+</body>
+</html>
