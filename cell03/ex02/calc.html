@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>It's over 9000</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; min-height: 100vh;
+           display: grid; place-items: center; background:#f7f7f7; }
+    .calc { background:#fff; padding:24px; border-radius:12px; box-shadow:0 10px 24px rgba(0,0,0,.1); }
+    .row { display:flex; gap:8px; align-items:center; }
+    input, select, button { font-size:16px; padding:10px 12px; }
+    input, select { width:140px; }
+    button { cursor:pointer; }
+    .title { text-align:center; margin-bottom:16px; font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="calc">
+    <div class="title">Basic Calculator</div>
+    <form id="form" class="row">
+      <input id="left"  type="text"  placeholder="Left (>= 0)" />
+      <select id="op" aria-label="Operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+      </select>
+      <input id="right" type="text"  placeholder="Right (>= 0)" />
+      <input id="submit" type="submit" value="Try me!" />
+    </form>
+  </div>
+
+  <script>
+ 
+    function isNonNegativeIntegerString(s) {
+      return /^\d+$/.test(s); 
+    }
+
+    const form  = document.getElementById('form');
+    const left  = document.getElementById('left');
+    const right = document.getElementById('right');
+    const op    = document.getElementById('op');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const aStr = left.value.trim();
+      const bStr = right.value.trim();
+
+      if (!isNonNegativeIntegerString(aStr) || !isNonNegativeIntegerString(bStr)) {
+        alert('Error :(');
+        return;
+      }
+
+      const a = Number(aStr);
+      const b = Number(bStr);
+      let msg;
+      if ((op.value === '/' || op.value === '%') && b === 0) {
+        msg = "It's over 9000!";
+        console.log(msg);
+        alert(msg);
+        return;
+      }
+
+      let result;
+      switch (op.value) {
+        case '+': result = a + b; break;
+        case '-': result = a - b; break;
+        case '*': result = a * b; break;
+        case '/': result = a / b; break;
+        case '%': result = a % b; break;
+      }
+
+      console.log(result);
+      alert(String(result));
+    });
+    setInterval(() => alert('Please, use me...'), 30000);
+  </script>
+</body>
+</html>
